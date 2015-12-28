@@ -1,0 +1,11 @@
+
+#box1 {
+	margin: 10px;
+	width: 400px;
+
+	background-color: lightblue;
+},
+#box2 {
+	margin: 10px;
+	background-color: blue;
+}

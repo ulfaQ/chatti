@@ -1,12 +1,58 @@
 //Lets require/import the HTTP module
 var http = require('http');
+var querystring = require('querystring');
 
 //Lets define a port we want to listen to
 const PORT=8080; 
 
+var viestit = ["sano terve!", "morjensta!"];
+
+fs = require('fs')
+
+
 //We need a function which handles requests and send response
 function handleRequest(request, response){
-    response.end('It Works!! Path Hit: ' + request.url);
+		//console.log(request);
+		if(request.url.indexOf('/api/') === -1) {
+			// request.url = '/'
+			// request.url = '/client.js'
+
+			var filename = request.url.substr(1);
+
+			if(request.url === '/') {
+				filename = 'index.html';
+			}
+
+			fs.readFile(filename, 'utf8', function (err,data) {
+	  		if (err) {
+	  		  return console.log(err);
+	  		}
+	  		console.log(data);
+	  		response.end(data);
+			});
+			return;
+		}
+
+		if(request.url.indexOf('/api/send/') > -1) {
+			//viestit.push()
+			var postDataString = "";
+			request.on('data', function(chunk) {
+	      postDataString = postDataString + chunk.toString();
+	    });
+	    
+	    request.on('end', function() {
+	    	viestit.push(postDataString)
+	      // empty 200 OK response for now
+	      response.writeHead(200, "OK", {'Content-Type': 'text/html'});
+	      response.end();
+
+	    });
+		}
+		if(request.url.indexOf('/api/get/') > -1) {
+			response.end(JSON.stringify(viestit));
+		}
+
+    
 }
 
 //Create a server
