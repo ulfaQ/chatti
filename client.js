@@ -57,7 +57,7 @@ function sendMessage() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
             updateMessages();
     }
-    //var FD = new FormData(); // hello motherfuckers!
+    //var FD = new FormData(); // hello motherfuckers! 1 2
     //FD.append("message", textField.value);
 		xmlHttp.open("POST", serverUrlSendMessage, true); // true for asynchronous
     xmlHttp.send(textField.value);
