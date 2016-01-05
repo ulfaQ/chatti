@@ -5,7 +5,7 @@ var querystring = require('querystring');
 //Lets define a port we want to listen to
 const PORT=8080;
 
-var viestit = [];
+var viestit = []; // Lets define a array for messages
 
 fs = require('fs')
 
