@@ -19,7 +19,8 @@ function handleRequest(request, response){
 
 			var filename = request.url.substr(1);
 
-			if(request.url === '/') {
+			// old line: if(request.url === '/') {   new line:
+			if(request.url === '/' || (filename.length > 0 && filename[0] === '/') || filename.indexOf('..') !== -1) {
 				filename = 'index.html';
 			}
 
