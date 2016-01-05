@@ -3,9 +3,9 @@ var http = require('http');
 var querystring = require('querystring');
 
 //Lets define a port we want to listen to
-const PORT=8080; 
+const PORT=8080;
 
-var viestit = ["sano terve!", "morjensta!"];
+var viestit = [];
 
 fs = require('fs')
 
@@ -39,7 +39,7 @@ function handleRequest(request, response){
 			request.on('data', function(chunk) {
 	      postDataString = postDataString + chunk.toString();
 	    });
-	    
+
 	    request.on('end', function() {
 	    	viestit.push(postDataString)
 	      // empty 200 OK response for now
@@ -52,7 +52,7 @@ function handleRequest(request, response){
 			response.end(JSON.stringify(viestit));
 		}
 
-    
+
 }
 
 //Create a server
