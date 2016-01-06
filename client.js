@@ -2,8 +2,8 @@
 var serverUrl = "http://" + window.location.host + '/api/';
 var serverUrlSendMessage = serverUrl + "send/";
 var serverUrlGetMessages = serverUrl + "get/";
-
-var userName = "Jamppa" // prompt("What's Your Name?");
+var box2 = document.getElementById("box2");
+var userName = prompt("Enter nickname:");
 
 function httpGetAsync(theUrl, callback)
 {
@@ -24,12 +24,18 @@ function onChatMessagesReceived(messagesJSON) {
 	for(var p = 0; p < messagesArray.length; p++) {
 		box1.appendChild(document.createTextNode(messagesArray[p]));
 		box1.appendChild(document.createElement('br'));
+    box2.scrollTop = box2.scrollHeight - box2.clientHeight;
 	}
 }
 
 function updateMessages() {
 	httpGetAsync(serverUrlGetMessages, onChatMessagesReceived)
 }
+
+
+
+
+
 
 setInterval(updateMessages, 1000);
 

@@ -1,26 +1,31 @@
 body {
+	background-color: #1F363B;
 	margin: 0;
 }
 #maincontainer {
+	cornerradius: 5px;
 	position: relative;
  	margin: 1% auto 1% auto;
 	height: 95%;
-	width: 400px;
+	width: 600px;
 	background-color: #F5F2DC;
 }
 #box1 {
 	padding: 10px 0 0 10px;
+	border-radius: 5px;
 	color: #FFF;
 	position: absolute;
-	width: 380px;
+	width: 580px;
+	height: 92%;
 	margin: 5px;
 	background-color: #4C6166;
-
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 #box2 {
 	float: left;
 	position: absolute;
-	width: 390px;
+	width: 590px;
 	margin: 0 auto;
 	background-color: #4C6166;
 	bottom: 5px;
