@@ -49,7 +49,7 @@ function onLoad() {
 	updateMessages();
 	console.log("onLoad toimii");
 	var sendButton = document.getElementById("send");
-	var textField = document.getElementById("textfield");
+	textField = document.getElementById("textfield");
   var box2 = document.getElementById("box2");
 	sendButton.onclick = sendMessage;
 }
