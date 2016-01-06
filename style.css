@@ -1,11 +1,34 @@
-
-#box1 {
-	margin: 10px;
+body {
+	margin: 0;
+}
+#maincontainer {
+	position: relative;
+ 	margin: 1% auto 1% auto;
+	height: 95%;
 	width: 400px;
+	background-color: #F5F2DC;
+}
+#box1 {
+	padding: 10px 0 0 10px;
+	color: #FFF;
+	position: absolute;
+	width: 380px;
+	margin: 5px;
+	background-color: #4C6166;
 
-	background-color: lightblue;
-},
+}
 #box2 {
-	margin: 10px;
-	background-color: blue;
+	float: left;
+	position: absolute;
+	width: 390px;
+	margin: 0 auto;
+	background-color: #4C6166;
+	bottom: 5px;
+	left: 5px;
+}
+#textfield {
+	height: 30px;
+}
+#send {
+	right: 5px;
 }

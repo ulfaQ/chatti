@@ -3,7 +3,7 @@ var serverUrl = "http://" + window.location.host + '/api/';
 var serverUrlSendMessage = serverUrl + "send/";
 var serverUrlGetMessages = serverUrl + "get/";
 
-var userName = prompt("What's Your Name?");
+var userName = "Jamppa" // prompt("What's Your Name?");
 
 function httpGetAsync(theUrl, callback)
 {
