@@ -59,7 +59,7 @@ function sendMessage() {
     //var FD = new FormData(); // hello motherfuckers! 1 2
     //FD.append("message", textField.value);
 		xmlHttp.open("POST", serverUrlSendMessage, true); // true for asynchronous
-    xmlHttp.send(username + ": " + textField.value);
+    xmlHttp.send(username, ": ", textField.value);
 	}
 	console.log("sendMessage toimii", textField.value);
 	textField.value = "";
