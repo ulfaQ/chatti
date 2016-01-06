@@ -50,13 +50,11 @@ function handleRequest(request, response){
 
 	    });
 		}
+
 		if(request.url.indexOf('/api/get/') > -1) {
 			response.end(JSON.stringify(viestit));
 		}
-
-
 }
-
 //Create a server
 var server = http.createServer(handleRequest);
 

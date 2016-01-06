@@ -2,7 +2,7 @@
 var serverUrl = "http://" + window.location.host + '/api/';
 var serverUrlSendMessage = serverUrl + "send/";
 var serverUrlGetMessages = serverUrl + "get/";
-var box2 = document.getElementById("box2");
+
 var userName = prompt("Enter nickname:");
 
 function httpGetAsync(theUrl, callback)
@@ -18,14 +18,18 @@ function httpGetAsync(theUrl, callback)
 
 function onChatMessagesReceived(messagesJSON) {
 	var box1 = document.getElementById("box1");
+  var box2 = document.getElementById("box2");
 	var messagesArray = JSON.parse(messagesJSON);
-	console.log('viestit vastaanotettu', JSON.parse(messagesJSON));
-	 box1.innerHTML = "";
-	for(var p = 0; p < messagesArray.length; p++) {
-		box1.appendChild(document.createTextNode(messagesArray[p]));
-		box1.appendChild(document.createElement('br'));
-    box2.scrollTop = box2.scrollHeight - box2.clientHeight;
-	}
+
+  if (messagesArray.length > -1) {
+  	console.log('viestit vastaanotettu', JSON.parse(messagesJSON));
+  	 box1.innerHTML = "";
+  	for(var p = 0; p < messagesArray.length; p++) {
+  		box1.appendChild(document.createTextNode(messagesArray[p]));
+  		box1.appendChild(document.createElement('br'));
+      box2.scrollTop = box2.scrollHeight - box2.clientHeight;
+  	}
+  }
 }
 
 function updateMessages() {
@@ -34,7 +38,7 @@ function updateMessages() {
 
 
 
-
+if (document.box1.firstChild.nodeType !== 1)
 
 
 setInterval(updateMessages, 1000);
@@ -45,7 +49,8 @@ function onLoad() {
 	updateMessages();
 	console.log("onLoad toimii");
 	var sendButton = document.getElementById("send");
-	textField = document.getElementById("textfield");
+	var textField = document.getElementById("textfield");
+  var box2 = document.getElementById("box2");
 	sendButton.onclick = sendMessage;
 }
 
@@ -68,5 +73,6 @@ function sendMessage() {
     xmlHttp.send(userName + ": " + textField.value);
 	}
 	console.log("sendMessage toimii", textField.value);
+
 	textField.value = "";
 }
