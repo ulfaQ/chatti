@@ -27,7 +27,7 @@ function onChatMessagesReceived(messagesJSON) {
   	for(var p = 0; p < messagesArray.length; p++) {
   		box1.appendChild(document.createTextNode(messagesArray[p]));
   		box1.appendChild(document.createElement('br'));
-      box2.scrollTop = box2.scrollHeight - box2.clientHeight;
+      box1.scrollTop = box1.scrollHeight - box1.clientHeight;
   	}
   }
 }
@@ -36,10 +36,7 @@ function updateMessages() {
 	httpGetAsync(serverUrlGetMessages, onChatMessagesReceived)
 }
 
-
-
 if (document.box1.firstChild.nodeType !== 1)
-
 
 setInterval(updateMessages, 1000);
 
@@ -73,6 +70,5 @@ function sendMessage() {
     xmlHttp.send(userName + ": " + textField.value);
 	}
 	console.log("sendMessage toimii", textField.value);
-
 	textField.value = "";
 }
