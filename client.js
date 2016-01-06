@@ -3,6 +3,8 @@ var serverUrl = "http://" + window.location.host + '/api/';
 var serverUrlSendMessage = serverUrl + "send/";
 var serverUrlGetMessages = serverUrl + "get/";
 
+var userName = prompt("What's Your Name?");
+
 function httpGetAsync(theUrl, callback)
 {
     var xmlHttp = new XMLHttpRequest();
@@ -14,8 +16,6 @@ function httpGetAsync(theUrl, callback)
     xmlHttp.send(null);
 }
 
-
-
 function onChatMessagesReceived(messagesJSON) {
 	var box1 = document.getElementById("box1");
 	var messagesArray = JSON.parse(messagesJSON);
@@ -25,7 +25,6 @@ function onChatMessagesReceived(messagesJSON) {
 		box1.appendChild(document.createTextNode(messagesArray[p]));
 		box1.appendChild(document.createElement('br'));
 	}
-
 }
 
 function updateMessages() {
@@ -60,7 +59,7 @@ function sendMessage() {
     //var FD = new FormData(); // hello motherfuckers! 1 2
     //FD.append("message", textField.value);
 		xmlHttp.open("POST", serverUrlSendMessage, true); // true for asynchronous
-    xmlHttp.send(textField.value);
+    xmlHttp.send(username + ": " + textField.value);
 	}
 	console.log("sendMessage toimii", textField.value);
 	textField.value = "";
